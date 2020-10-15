@@ -16,14 +16,14 @@
         <p>
             <mat-form-field>
                 <mat-label>Date of Birth*</mat-label>
-                <input matInput type="date" placeholder="Date of Birth" formControlName="dateOfBirth">
+                <input matInput type="date" placeholder="Date of Birth" formControlName="dateOfBirth" (change)="calculateAge()">
             </mat-form-field>
             
         </p>
         <p>
             <mat-form-field>
                 <mat-label>Occupation*</mat-label>
-                <mat-select formControlName="occupation" name="Occupation" (selectionChange)="onOccupationChange()">
+                <mat-select formControlName="occupation" name="Occupation">
                   <mat-option *ngFor="let item of occupationList" [value]="item.occupation" (click)="setSelectedFactor(item.factor)">
                     {{ item.occupation }}
                   </mat-option>
@@ -38,7 +38,7 @@
             
         </p>
         <p *ngIf="premiumTotal && premiumTotal > 0">
-            <label class="lable-total">Death Premium: {{ premiumTotal.toFixed(2) }}/month</label>
+            <label class="lable-total">Death Premium: <b>{{ premiumTotal.toFixed(2) }}/month</b></label>
         </p>
         <p>
             <button mat-raised-button type="submit" color="primary">Calculate</button>

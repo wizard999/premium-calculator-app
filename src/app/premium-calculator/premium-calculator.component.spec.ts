@@ -7,6 +7,8 @@ import { MatButtonModule, MatInputModule, MatSnackBarModule, MatSelectModule } f
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { from } from 'rxjs';
+import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('PremiumCalculatorComponent', () => {
   let component: PremiumCalculatorComponent;
@@ -19,7 +21,9 @@ describe('PremiumCalculatorComponent', () => {
         MatSnackBarModule,
         MatButtonModule,
         MatInputModule,
-        MatSelectModule
+        MatSelectModule,
+        BrowserAnimationsModule,
+        ReactiveFormsModule
       ],
       declarations: [
         PremiumCalculatorComponent,
@@ -116,7 +120,7 @@ describe('PremiumCalculatorComponent', () => {
     const service = TestBed.get(CommonService);
     spyOn(service, 'getOccupationRatingList').and.returnValue(from([ ratingList ]));
 
-    component.ngOnInit();
+    component.getOccupationRatingFactor();
     fixture.detectChanges();
 
     expect(component.occupationRatingList).toBe(ratingList);
@@ -136,6 +140,7 @@ describe('PremiumCalculatorComponent', () => {
     component.form.controls['dateOfBirth'].setValue(testModel.dateOfBirth);
     component.form.controls['occupation'].setValue(testModel.occupation);
     component.form.controls['deathCoverAmount'].setValue(testModel.deathCoverAmount);
+    component.selectedFactor = 1.25;
 
     component.calculatePremium();
     fixture.detectChanges();

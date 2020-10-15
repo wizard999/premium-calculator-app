@@ -84,12 +84,19 @@ export class PremiumCalculatorComponent implements OnInit, OnDestroy {
     this.premiumTotal = this.commonService.calculatePremium(deathCoverAmount, this.selectedFactor, age);
   }
 
-  onOccupationChange() {
-     if (this.form.valid) { this.calculatePremium(); }
+  calculateAge() {
+    const birthdate = this.form.get('dateOfBirth').value;
+    const dob = new Date(birthdate);
+    const timeDiff = Math.abs(Date.now() - dob.getTime());
+    const age = Math.floor((timeDiff / (1000 * 3600 * 24)) / 365.25);
+    this.form.controls['age'].setValue(age);
   }
+
 
   setSelectedFactor(factor: number) {
     this.selectedFactor = factor;
+
+    if (this.form.valid) { this.calculatePremium(); }
   }
 
   ngOnDestroy() {

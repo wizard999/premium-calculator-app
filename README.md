@@ -28,3 +28,8 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 ## Assumptions
 
 Assume that occupation list data & occupation rating data come from API endpoint, have created two json files to contain those dummy data.
+
+## Clarifications
+
+1. Change in the occupation dropdown would trigger the premium calculation
+2. Change in the Date of Birth field would trigger the age calculation
