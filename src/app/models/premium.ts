@@ -14,6 +14,6 @@ export interface OccupationModel {
 }
 
 export interface OccupationRatingModel {
-    occupation: string;
     rating: string;
+    factor: number;
 }
