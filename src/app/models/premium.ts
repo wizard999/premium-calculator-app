@@ -1,0 +1,19 @@
+export interface PremiumModel {
+    name: string;
+    age: number;
+    dateOfBirth: string;
+    occupation: string;
+    deathCoverAmount: number;
+    rating: string;
+    factor: number;
+}
+
+export interface OccupationModel {
+    occupation: string;
+    rating: string;
+}
+
+export interface OccupationRatingModel {
+    occupation: string;
+    rating: string;
+}
