@@ -27,7 +27,11 @@ export class CommonService {
          retry(1),
          catchError(this.handleError)
        );
- }
+  }
+
+  calculatePremium(deathCoverAmount: number, factor: number, age: number): number {
+      return (deathCoverAmount * factor * age) / (1000 * 12);
+  }
 
 
   handleError(error) {

@@ -1,0 +1,13 @@
+.calculator-container {
+    margin:auto;
+    margin-top: 30px;
+    padding:10px;
+    border: 1px solid #B8BECC;
+    border-radius: 20px;
+    max-width: 350px;
+}
+
+.label-total {
+    font-size: 18px;
+    font-weight: 500;
+}

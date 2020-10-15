@@ -1,1 +1,49 @@
-<p>premium-calculator works!</p>
+<div class="calculator-container">
+    <form [formGroup]="form" (ngSubmit)="calculatePremium()">
+        <p>
+            <mat-form-field>
+                <mat-label>Name*</mat-label>
+                <input matInput type="text" formControlName="name">
+            </mat-form-field>
+            
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Age*</mat-label>
+                <input matInput type="number" formControlName="age" min="1">
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Date of Birth*</mat-label>
+                <input matInput type="date" placeholder="Date of Birth" formControlName="dateOfBirth">
+            </mat-form-field>
+            
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Occupation*</mat-label>
+                <mat-select formControlName="occupation" name="Occupation" (selectionChange)="onOccupationChange()">
+                  <mat-option *ngFor="let item of occupationList" [value]="item.occupation" (click)="setSelectedFactor(item.factor)">
+                    {{ item.occupation }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field>
+                <mat-label>Death Cover Amount*</mat-label>
+                <input matInput type="number" formControlName="deathCoverAmount" min="0">
+            </mat-form-field>
+            
+        </p>
+        <p *ngIf="premiumTotal && premiumTotal > 0">
+            <label class="lable-total">Death Premium: {{ premiumTotal.toFixed(2) }}/month</label>
+        </p>
+        <p>
+            <button mat-raised-button type="submit" color="primary">Calculate</button>
+        </p>
+    </form>
+
+</div>
+
