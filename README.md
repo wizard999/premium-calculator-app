@@ -1,3 +1,4 @@
+[![Wizard999](https://circleci.com/gh/wizard999/premium-calculator-app.svg?style=svg)](https://app.circleci.com/pipelines/github/wizard999)
 # PREMIUM CALCULATOR APP
 
 This project was generated with Angular CLI version 8.3.29, Angular version 8.2.14.
